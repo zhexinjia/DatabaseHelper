@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -14,77 +16,25 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
+		
+		
 		SQLrequest request = new SQLrequest();
-		String output = request.getUserList(1);
+		System.out.println(request.getUser(1));
+		/*
+		ArrayList<HashMap<String, String>> output = request.getUserList(1);
 		
-		
-		
-		
-		System.out.println(output);
-		System.out.println("below is json");
-		
-
-		JSONParser JsonParser = new JSONParser();
-		
-		ContainerFactory orderedKeyFactory = new ContainerFactory()
-		{
-		    public List creatArrayContainer() {
-		      return new LinkedList();
-		    }
-
-		    public Map createObjectContainer() {
-		      return new LinkedHashMap();
-		    }
-
-		};
-		
-		
-		
-		JSONArray object;
-		try {
-			object = (JSONArray) JsonParser.parse(output);
-			Iterator<?> iterator = object.listIterator();
-			while(iterator.hasNext()){
-				//below is converting json to map
-				Object obj = (Object)iterator.next();
-				//Object obj = JsonParser.parse(iterator.next().toString(), orderedKeyFactory);
-				@SuppressWarnings("unchecked")
-				Map<String, String> map = (Map<String, String>)obj;
-				//LinkedHashMap map = (LinkedHashMap)obj;
-				
-				Set<String> key = map.keySet();
-				Iterator<String> newIT = key.iterator();
-				while(newIT.hasNext()) {
-					String aaa = newIT.next();
-					System.out.println(aaa);
-					System.out.println(map.get(aaa));
-				}
-				
-				
-				
-				//below is converting json to string list
-				/*
-				JSONObject aaa = (JSONObject) iterator.next();
-				Set<String> key = aaa.keySet();
-				Iterator<String> newIT = key.iterator();
-				while(newIT.hasNext()) {
-					String temp = (String) aaa.get(newIT.next());
-					if(temp==null) {
-						System.out.println("null");
-					}else if(temp.equals("")){
-						System.out.println("empty");
-					}
-					else {
-						System.out.println(temp);
-					}
-					
-				}
-				*/
+		for(HashMap<String, String> item:output) {
+			Set<String> keyset = item.keySet();
+			for (String key:keyset) {
+				System.out.println(key);
+				System.out.println(item.get(key));
 			}
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
+		*/
+		
+		
+		
+		
 		
 		
 		/*

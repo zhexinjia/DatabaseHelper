@@ -6,6 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -50,7 +51,12 @@ public class SQLrequest {
 	//以下所有是get
 	
 	//返回所有护士档案
-	public ArrayList<Map<String, String>> getUserList(int hospitalID){
+	public String getUser(int hosID) {
+		String sql = "sql=select * from nurse where hosID = " + hosID +";";
+		String output = sendGet(urlGet, sql);
+		return output;
+	}
+	public ArrayList<HashMap<String, String>> getUserList(int hospitalID){
 		String sql = "sql=select * from nurse where hosID = " + hospitalID +";";
 		String output = sendGet(urlGet, sql);
 		return jsonToList(output);
@@ -128,8 +134,8 @@ public class SQLrequest {
 	
 	
 	//convert json array to arraylist
-	private ArrayList<Map<String, String>> jsonToList(String json){
-		ArrayList<Map<String, String>> output = new ArrayList<Map<String, String>>();
+	private ArrayList<HashMap<String, String>> jsonToList(String json){
+		ArrayList<HashMap<String, String>> output = new ArrayList<HashMap<String, String>>();
 		JSONArray objectArray = new JSONArray();
 		try {
 			objectArray = (JSONArray) parser.parse(json);
@@ -141,7 +147,7 @@ public class SQLrequest {
 		while (arrayIterator.hasNext()) {
 			Object object = arrayIterator.next();
 			@SuppressWarnings("unchecked")
-			Map<String, String> map = (Map<String, String>)object;
+			HashMap<String, String> map = (HashMap<String, String>)object;
 			output.add(map);
 		}
 		return output;
