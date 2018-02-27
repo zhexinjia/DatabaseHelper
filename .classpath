@@ -4,5 +4,18 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="Jars"/>
 	<classpathentry kind="lib" path="Jars/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="Jars/apache/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="Jars/apache/commons-collections4-4.1.jar"/>
+	<classpathentry kind="lib" path="Jars/apache/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="Jars/apache/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="Jars/apache/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="Jars/apache/poi-3.17.jar"/>
+	<classpathentry kind="lib" path="Jars/apache/poi-examples-3.17.jar"/>
+	<classpathentry kind="lib" path="Jars/apache/poi-excelant-3.17.jar"/>
+	<classpathentry kind="lib" path="Jars/apache/poi-ooxml-3.17.jar"/>
+	<classpathentry kind="lib" path="Jars/apache/poi-ooxml-schemas-3.17.jar"/>
+	<classpathentry kind="lib" path="Jars/apache/poi-scratchpad-3.17.jar"/>
+	<classpathentry kind="lib" path="Jars/apache/curvesapi-1.04.jar"/>
+	<classpathentry kind="lib" path="Jars/apache/xmlbeans-2.6.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
