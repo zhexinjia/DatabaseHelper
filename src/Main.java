@@ -24,9 +24,15 @@ public class Main {
 		String[] fields = {"姓名", "电话", "备注"};
 		String[] keys = {"name", "phone", "comment"};
 		String path = "/Users/Ben/Desktop/write.xlsx";
+		try {
+			FTPtool.sshSftp("101.200.39.52", "zhexinj", "Aaaxtt123321", 22);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
-		
+		/*
 		ArrayList<HashMap<String, String>> temp = null;
 		try {
 			temp = ExcelHelper.readXLSXFile("/Users/Ben/Desktop/test.xlsx", new String[]{"name", "phone", "comment"});
@@ -44,22 +50,10 @@ public class Main {
 		}
 		
 		ExcelHelper.writeXLSXFile(temp, fields, keys, path);
-		
-		
-		//SQLrequest request = new SQLrequest();
-		//System.out.println(request.getUser(1));
-		
-		//ArrayList<HashMap<String, String>> output = request.getUserList(1);
-		
-		/*
-		for(HashMap<String, String> item:output) {
-			//Set<Entry<String, String>> set = item.entrySet();
-			Collection<String> list = item.values();
-			System.out.println(list.contains("1"));
-			
-		}
 		*/
 		
+		
+
 		
 
 	}

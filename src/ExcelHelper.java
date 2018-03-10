@@ -1,4 +1,5 @@
 import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -11,7 +12,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -43,8 +46,15 @@ public class ExcelHelper {
             for(int i = 0; i< keylist.length;i++) {
             		cell = row.getCell(i);
             		objFormulaEvaluator.evaluate(cell);
-            		String cellValue = dataFormatter.formatCellValue(cell, objFormulaEvaluator);
-            		map.put(keylist[i], cellValue);            	
+            		if(DateUtil.isCellDateFormatted(cell)) {
+            			Date date = cell.getDateCellValue();
+            			SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
+            			String cellValue = formatter.format(date);
+            			map.put(keylist[i], cellValue);
+            		}else {
+            			String cellValue = dataFormatter.formatCellValue(cell, objFormulaEvaluator);
+                		map.put(keylist[i], cellValue);    
+            		}           	
             }
             maplist.add(map);
         }
